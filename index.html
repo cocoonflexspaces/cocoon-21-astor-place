@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cocoon × 21 Astor Place — Pricing Strategy</title>
+<meta name="description" content="Pricing strategy proposal from Cocoon Flex Spaces for 21 Astor Place #7D, NoHo. Prepared for Robin Zhao." />
+<style>
+  :root {
+    --cream:       #F5F2E8;
+    --cream-deep:  #ECE7D6;
+    --cream-warm:  #EFE9D7;
+    --terracotta:  #F54029;
+    --terracotta-soft: #E8593F;
+    --terracotta-deep: #C8331E;
+    --teal:        #275453;
+    --teal-soft:   #355F5E;
+    --ink:         #1A1A1A;
+    --ink-soft:    #4A4A4A;
+    --ink-mute:    #6B6B6B;
+    --rule:        rgba(26,26,26,0.12);
+    --rule-soft:   rgba(26,26,26,0.06);
+    --max:         1280px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .superhead {
+    font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.16em; font-size: 11px; color: var(--terracotta);
+  }
+  .title {
+    font-weight: 700; font-size: clamp(40px, 7vw, 96px);
+    line-height: 1.0; letter-spacing: -0.025em; margin: 0;
+  }
+  .title .accent { color: var(--terracotta); }
+  .headline {
+    font-weight: 500; font-size: clamp(24px, 3.2vw, 40px);
+    line-height: 1.2; letter-spacing: -0.012em; margin: 0 0 0.6em;
+  }
+  .lede {
+    font-weight: 400; font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.45; color: var(--ink-soft); margin: 0 0 1em;
+  }
+  .body { font-size: 17px; line-height: 1.6; }
+  .caption {
+    font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--ink-soft);
+  }
+  .eyebrow {
+    font-size: 12px; text-transform: uppercase;
+    letter-spacing: 0.18em; font-weight: 700;
+    color: var(--terracotta); margin-bottom: 12px;
+  }
+
+  section {
+    padding: clamp(64px, 10vh, 140px) clamp(24px, 5vw, 80px);
+    max-width: var(--max); margin: 0 auto;
+  }
+  section + section { border-top: 1px solid var(--rule); }
+  section.tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: clamp(48px, 6vh, 80px); }
+  section.full { max-width: none; padding-left: 0; padding-right: 0; }
+  section.full > .inner {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 80px);
+  }
+  section.cream-deep { background: var(--cream-deep); }
+
+  .logomark { width: 28px; height: 28px; flex: 0 0 auto; }
+  .wordmark { height: 16px; width: auto; flex: 0 0 auto; }
+
+  /* TOP BAR */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,242,232,0.92);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar-inner {
+    max-width: var(--max); margin: 0 auto;
+    padding: 14px clamp(24px, 5vw, 80px);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .topbar-brand { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .topbar-brand .cocoon { display: flex; align-items: center; gap: 10px; padding-right: 18px; }
+  .topbar-brand .divider { width: 1px; height: 22px; background: var(--rule); flex: 0 0 auto; }
+  .topbar-brand .partner {
+    font-weight: 600; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink);
+  }
+  .topbar-meta { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-weight: 600; }
+  @media (max-width: 700px) { .topbar-meta { display: none; } }
+
+  /* COVER */
+  .cover {
+    position: relative; background: var(--cream);
+    padding: 0; max-width: none; overflow: hidden;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cover-grid { display: grid; grid-template-columns: 1.1fr 1fr; min-height: 640px; }
+  .cover-text {
+    padding: clamp(40px, 6vw, 80px);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    background: var(--cream);
+  }
+  .cover-image {
+    position: relative; overflow: hidden; background: var(--cream-deep);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cover-image img { width: 100%; height: 100%; object-fit: cover; }
+  .cover-image-placeholder {
+    width: 100%; height: 100%; background: var(--cream-deep);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--ink-mute); font-weight: 700;
+  }
+  .cover-meta {
+    display: grid; gap: 6px; margin-top: 32px;
+    font-size: 13px; line-height: 1.65; color: var(--ink-soft);
+  }
+  .cover-meta strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 800px) { .cover-grid { grid-template-columns: 1fr; min-height: auto; } }
+
+  /* TWO-COL */
+  .two-col { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 6vw, 96px); align-items: start; }
+  .two-col.balanced { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 800px) { .two-col, .two-col.balanced { grid-template-columns: 1fr; } }
+
+  /* CALLOUT BAR */
+  .callout {
+    background: var(--terracotta); color: #FFF;
+    padding: clamp(40px, 6vw, 80px); margin: 0; max-width: none;
+  }
+  .callout.teal { background: var(--teal); }
+  .callout.ink  { background: var(--ink); }
+  .callout .inner { max-width: var(--max); margin: 0 auto; padding: 0 clamp(24px, 5vw, 80px); }
+  .callout .title { color: #FFF; }
+  .callout .superhead { color: rgba(255,255,255,0.88); }
+  .callout .lede { color: rgba(255,255,255,0.92); }
+
+  /* DIVIDER LABEL */
+  .divider-label { display: grid; grid-template-columns: auto 1fr auto; gap: 24px; align-items: center; margin: 0 0 32px; }
+  .divider-label .text { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 700; color: var(--terracotta); }
+  .divider-label .line { height: 1px; background: var(--rule); }
+
+  /* STATS */
+  .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 32px; }
+  .stat .num { font-size: clamp(36px, 4vw, 56px); font-weight: 700; letter-spacing: -0.02em; line-height: 1; color: var(--terracotta); }
+  .stat .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink-soft); margin-top: 8px; font-weight: 600; }
+  @media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* NOTE BOX */
+  .note {
+    background: #FFF; border-left: 3px solid var(--terracotta);
+    padding: 32px 36px; margin: 0; font-size: 17px; line-height: 1.6;
+  }
+  .note p { margin: 0 0 14px; }
+  .note p:last-child { margin-bottom: 0; }
+  .note .signature { margin-top: 18px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--terracotta); font-weight: 700; }
+
+  /* NARRATIVE TILES */
+  .narrative { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  .narrative .tile { background: #FFF; border: 1px solid var(--rule); padding: 28px; }
+  .narrative .tile .h { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; color: var(--terracotta); margin-bottom: 12px; }
+  .narrative .tile h4 { font-size: 20px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .narrative .tile p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 800px) { .narrative { grid-template-columns: 1fr; } }
+
+  /* ADJECTIVE STRIP */
+  .adjectives { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+  .adjectives span {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em;
+    font-weight: 700; color: var(--terracotta); border: 1px solid var(--terracotta);
+    padding: 8px 14px; border-radius: 999px;
+  }
+
+  /* PRICING TABLE */
+  .price-table { background: #FFF; border: 1px solid var(--rule); overflow: hidden; margin-top: 24px; }
+  .price-table .pt-head {
+    background: var(--ink); color: #FFF; padding: 18px 24px;
+    display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 16px; align-items: baseline;
+  }
+  .price-table .pt-head .cat { font-size: 18px; font-weight: 700; letter-spacing: -0.005em; }
+  .price-table .pt-head .meta { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: rgba(255,255,255,0.78); font-weight: 600; text-align: right; }
+  .price-table .pt-head .meta strong { color: #FFF; font-weight: 700; }
+  .price-table table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .price-table th, .price-table td { padding: 14px 24px; text-align: left; border-bottom: 1px solid var(--rule-soft); vertical-align: middle; }
+  .price-table th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-weight: 700; background: var(--cream-warm); }
+  .price-table td.tier-name { font-weight: 700; width: 22%; }
+  .price-table td.guests { color: var(--ink-soft); width: 26%; }
+  .price-table td.price { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 16px; text-align: right; width: 26%; color: var(--ink); }
+  .price-table td.delta { font-variant-numeric: tabular-nums; text-align: right; width: 26%; color: var(--terracotta); font-weight: 600; font-size: 13px; }
+  .price-table tr:last-child td { border-bottom: 0; }
+  .price-table tr.payout { background: var(--cream-warm); }
+  .price-table tr.payout td { font-size: 13px; color: var(--ink-soft); border-top: 2px solid var(--ink); padding-top: 16px; padding-bottom: 16px; }
+  .price-table tr.payout td.label { font-weight: 700; color: var(--ink); text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px; }
+  .price-table tr.payout td.amount { text-align: right; font-weight: 700; color: var(--ink); font-size: 15px; font-variant-numeric: tabular-nums; }
+  @media (max-width: 700px) {
+    .price-table .pt-head { grid-template-columns: 1fr; gap: 4px; }
+    .price-table .pt-head .meta { text-align: left; }
+    .price-table th, .price-table td { padding: 10px 14px; font-size: 13px; }
+  }
+
+  .pricing-block { background: var(--cream); border: 1px solid var(--rule); padding: clamp(28px, 4vw, 48px); }
+  .pricing-block .summary {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+    margin: 0 0 0; padding: 0 0 22px; border-bottom: 1px solid var(--rule);
+    font-size: 14px; line-height: 1.6; color: var(--ink-soft);
+  }
+  .pricing-block .summary .label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); font-weight: 700; margin-bottom: 6px; display: block; }
+  @media (max-width: 700px) { .pricing-block .summary { grid-template-columns: 1fr; } }
+
+  /* COMPARE TABLE */
+  .compare { width: 100%; border-collapse: collapse; background: #FFF; margin-top: 24px; border: 1px solid var(--rule); }
+  .compare th, .compare td { padding: 16px 22px; text-align: left; border-bottom: 1px solid var(--rule-soft); font-size: 14px; vertical-align: top; }
+  .compare th { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-soft); font-weight: 700; background: var(--cream-warm); }
+  .compare td.attr { font-weight: 700; width: 28%; text-transform: uppercase; letter-spacing: 0.1em; font-size: 11px; color: var(--ink); }
+  .compare td.peer { color: var(--ink-soft); width: 36%; }
+  .compare td.us   { color: var(--ink); width: 36%; font-weight: 500; }
+  .compare tr:last-child td { border-bottom: 0; }
+
+  /* WALK STEPS */
+  .walk { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 48px; }
+  .walk .step { border-top: 2px solid var(--terracotta); padding-top: 24px; }
+  .walk .step-num { font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--terracotta); font-weight: 700; margin-bottom: 10px; }
+  .walk .step h4 { font-size: 22px; font-weight: 600; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .walk .step p { margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.55; }
+  @media (max-width: 800px) { .walk { grid-template-columns: 1fr; } }
+
+  /* TIMELINE */
+  .timeline { display: grid; grid-template-columns: 160px 1fr; gap: 0; margin-top: 32px; }
+  .timeline .row { display: contents; }
+  .timeline .row > * { padding: 18px 0; border-bottom: 1px solid var(--rule); }
+  .timeline .row:last-child > * { border-bottom: 0; }
+  .timeline .when { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); font-weight: 700; padding-right: 24px; }
+  .timeline .what h5 { font-size: 16px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.005em; }
+  .timeline .what p { margin: 0; color: var(--ink-soft); font-size: 14px; line-height: 1.55; }
+  @media (max-width: 700px) { .timeline { grid-template-columns: 1fr; } .timeline .when { padding-bottom: 6px; } }
+
+  /* AREAS LIST */
+  .areas { display: grid; gap: 0; border-top: 1px solid var(--rule); margin-top: 16px; }
+  .areas .area { display: grid; grid-template-columns: 26px 1fr auto; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--rule-soft); align-items: baseline; }
+  .areas .area .mark { font-size: 11px; font-weight: 700; color: var(--terracotta); letter-spacing: 0.12em; text-transform: uppercase; }
+  .areas .area .name { font-size: 15px; font-weight: 600; letter-spacing: -0.005em; }
+  .areas .area .name span { display: block; font-weight: 400; color: var(--ink-soft); font-size: 13px; margin-top: 2px; }
+  .areas .area .state { font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; font-weight: 700; color: var(--terracotta); white-space: nowrap; }
+
+  /* NEARBY */
+  .nearby { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 32px; margin-top: 28px; }
+  .nearby .item { border-top: 1px solid var(--rule); padding-top: 12px; }
+  .nearby .item .nm { font-size: 15px; font-weight: 700; letter-spacing: -0.005em; color: var(--ink); margin: 0; }
+  .nearby .item .what { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; font-weight: 600; color: var(--terracotta); margin-top: 4px; }
+  @media (max-width: 800px) { .nearby { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 480px) { .nearby { grid-template-columns: 1fr; } }
+
+  /* MOSAIC */
+  .mosaic-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr; grid-auto-rows: 240px; gap: 14px; }
+  .mosaic-grid .frame { position: relative; overflow: hidden; background: var(--cream-deep); border: 1px solid var(--rule); }
+  .mosaic-grid .frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mosaic-grid .frame.hero { grid-column: span 2; grid-row: span 2; }
+  .mosaic-grid .frame.tall { grid-row: span 2; }
+  .mosaic-grid .frame.wide { grid-column: span 2; }
+  .mosaic-grid .frame .ph { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 10px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--ink-mute); font-weight: 700; padding: 16px; text-align: center; }
+  @media (max-width: 900px) { .mosaic-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; } .mosaic-grid .frame.hero { grid-column: span 2; grid-row: span 2; } .mosaic-grid .frame.tall { grid-row: span 1; } }
+  @media (max-width: 560px) { .mosaic-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; } .mosaic-grid .frame.hero, .mosaic-grid .frame.tall, .mosaic-grid .frame.wide { grid-column: auto; grid-row: auto; } }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: var(--cream); padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 80px); }
+  footer .inner { max-width: var(--max); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; }
+  footer .sig p { margin: 0 0 12px; }
+  footer .sig .name { font-size: 18px; font-weight: 700; margin-top: 18px; color: #FFF; }
+  footer .sig .role { font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: var(--terracotta); font-weight: 700; margin-top: 4px; }
+  footer .meta { font-size: 12px; line-height: 1.7; text-transform: uppercase; letter-spacing: 0.14em; color: rgba(255,255,255,0.62); }
+  footer .meta strong { color: #FFF; }
+  @media (max-width: 700px) { footer .inner { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <span class="cocoon">
+        <svg class="logomark" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="128" height="128" rx="0" fill="#F54029"/>
+          <path d="M64 24C42 24 24 42 24 64C24 86 42 104 64 104C86 104 104 86 104 64C104 42 86 24 64 24Z" fill="none" stroke="#F5F2E8" stroke-width="8"/>
+          <path d="M64 40C51 40 40 51 40 64C40 77 51 88 64 88C77 88 88 77 88 64C88 51 77 40 64 40Z" fill="#F5F2E8"/>
+        </svg>
+        <span style="font-size:13px;font-weight:700;letter-spacing:0.06em;color:var(--ink);">COCOON</span>
+      </span>
+      <span class="divider"></span>
+      <span class="partner">21 Astor Place #7D</span>
+    </div>
+    <div class="topbar-meta">Pricing Strategy &middot; August 2026</div>
+  </div>
+</div>
+
+<!-- COVER -->
+<section class="cover full">
+  <div class="cover-grid">
+    <div class="cover-text">
+      <div>
+        <div class="superhead">Pricing strategy &middot; Prepared for Robin Zhao</div>
+        <h1 class="title">A loft at the <span class="accent">top</span><br/>of NoHo.</h1>
+        <p class="lede" style="margin-top:24px; max-width: 520px;">
+          A pricing strategy for 21 Astor Place #7D — calibrated to
+          Cocoon's Main Portfolio flagship tier, anchored to the
+          platform's highest-performing NoHo residence.
+        </p>
+      </div>
+      <div class="cover-meta">
+        <div><strong>Property</strong> &nbsp;·&nbsp; 21 Astor Place #7D, NoHo, New York, NY 10003</div>
+        <div><strong>Approx. size</strong> &nbsp;·&nbsp; 4,275 sqft &middot; Duplex loft</div>
+        <div><strong>Portfolio tier</strong> &nbsp;·&nbsp; Main Portfolio &middot; Flagship rate tier</div>
+        <div><strong>Prepared for</strong> &nbsp;·&nbsp; Robin Zhao</div>
+        <div><strong>Prepared by</strong> &nbsp;·&nbsp; Eduard Monteagudo Martín, Cocoon Flex Spaces</div>
+        <div><strong>Date</strong> &nbsp;·&nbsp; August 2026</div>
+      </div>
+    </div>
+    <div class="cover-image">
+      <img src="https://photos.zillowstatic.com/fp/2d630307867cf9cf94aa2515dbf3d56d-se_large_800_400.webp" alt="21 Astor Place #7D — main living area" />
+    </div>
+  </div>
+</section>
+
+<!-- PERSONAL NOTE -->
+<section>
+  <div class="divider-label">
+    <span class="text">A note from Eduard</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">01</span>
+  </div>
+  <div class="two-col">
+    <div>
+      <h2 class="headline" style="margin:0;">The rate structure<br/>for 21 Astor Place<br/>#7D.</h2>
+    </div>
+    <div class="note">
+      <p>Robin,</p>
+      <p>
+        This document sets out the rates we'd propose for your space
+        and explains how we arrived at them. We benchmarked #7D against
+        the closest comparable in our portfolio — another NoHo duplex
+        at similar scale — and carried those rates forward here.
+      </p>
+      <p>
+        The minimum is eight hours across all booking categories,
+        so every booking is a full day or a full event night. Floor
+        payout figures in each table are calculated at the smallest
+        headcount tier — read them as a conservative floor.
+        Realized averages run higher.
+      </p>
+      <p>
+        Happy to walk through any of this on a call whenever suits you.
+      </p>
+      <p class="signature">— Eduard</p>
+    </div>
+  </div>
+</section>
+
+<!-- THE PROPERTY AT A GLANCE -->
+<section>
+  <div class="divider-label">
+    <span class="text">The property</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">02</span>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="num">4,275</div>
+      <div class="label">Interior sqft</div>
+    </div>
+    <div class="stat">
+      <div class="num">2</div>
+      <div class="label">Floors &middot; duplex loft</div>
+    </div>
+    <div class="stat">
+      <div class="num">45</div>
+      <div class="label">Max guest capacity</div>
+    </div>
+    <div class="stat">
+      <div class="num">NoHo</div>
+      <div class="label">Neighborhood</div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- PHOTO MOSAIC -->
+<section class="full" style="padding: clamp(48px, 8vh, 96px) 0;">
+  <div class="inner">
+    <div class="divider-label">
+      <span class="text">The loft, in pictures</span>
+      <span class="line"></span>
+      <span class="text" style="color:var(--ink-soft);">Mosaic</span>
+    </div>
+  </div>
+  <div class="inner">
+    <div class="mosaic-grid">
+      <div class="frame hero"><img src="https://photos.zillowstatic.com/fp/2d630307867cf9cf94aa2515dbf3d56d-se_large_800_400.webp" alt="Main loft floor — wide shot" /></div>
+      <div class="frame"><img src="https://photos.zillowstatic.com/fp/0ae1a07e8966c4cc1bd1d6cb56906acd-se_large_800_400.webp" alt="Interior detail" /></div>
+      <div class="frame tall"><img src="https://photos.zillowstatic.com/fp/ad29814567874261507651afb98c8dd5-se_large_800_400.webp" alt="Upper duplex level" /></div>
+      <div class="frame"><img src="https://photos.zillowstatic.com/fp/198db26ed06d9e00c02c7ccce989bc97-se_large_800_400.webp" alt="Kitchen and dining area" /></div>
+      <div class="frame"><img src="https://photos.zillowstatic.com/fp/895821625032fa12ee5adef2658f0e19-se_large_800_400.webp" alt="Living area" /></div>
+      <div class="frame wide"><img src="https://photos.zillowstatic.com/fp/96b506028a8e447e6a4d2bdd8a2cdf20-se_large_800_400.webp" alt="Full loft panorama" /></div>
+    </div>
+    <p class="caption" style="margin-top: 18px; color: var(--ink-mute);">
+      21 Astor Place #7D &nbsp;·&nbsp; NoHo, New York City &nbsp;·&nbsp; 4,275 sqft duplex
+    </p>
+  </div>
+</section>
+
+<!-- DESIGN NARRATIVE -->
+
+<!-- PRICING -->
+<section>
+  <div class="divider-label">
+    <span class="text">Pricing</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">04</span>
+  </div>
+  <h2 class="headline">The rates we'd propose, and how we arrived at them.</h2>
+  <p class="lede" style="max-width: 820px;">
+    We benchmarked #7D against the closest comparable in our portfolio
+    — another NoHo residence at the same scale — and carried those
+    rates forward here. Floor-payout figures in each table are
+    calculated at <strong>Tier&nbsp;1</strong>, the smallest headcount
+    tier and statistically the least common booking type. Read them as
+    a conservative floor, not a typical outcome.
+  </p>
+
+  <div class="pricing-block" style="margin-top: 32px;">
+    <div class="summary">
+      <div>
+        <span class="label">Bookable footprint</span>
+        Full 4,275-sqft duplex loft from day one: main loft floor, upper
+        duplex level, kitchen, dining areas, and all interior spaces.
+        The entire footprint is in scope across all booking categories.
+      </div>
+      <div>
+        <span class="label">Owner economics</span>
+        50% of every space-rental dollar. Cocoon retains 100% of
+        cleaning and on-site casa-manager fees. Every booking is
+        reviewed and approved by you before it confirms.
+      </div>
+    </div>
+
+    <!-- OFFSITE MEETINGS -->
+    <div class="price-table">
+      <div class="pt-head">
+        <div class="cat">Offsite Meetings</div>
+        <div class="meta">Code &middot; <strong>M</strong> &nbsp;·&nbsp; Minimum &middot; <strong>8 hours</strong></div>
+        <div class="meta">Cap &middot; <strong>35 guests</strong></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Guests</th><th style="text-align:right;">Hourly rate</th><th style="text-align:right;">Increase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-name">Tier 1 (Base)</td><td class="guests">1 – 14</td><td class="price">$1,850</td><td class="delta">—</td></tr>
+          <tr><td class="tier-name">Tier 2</td><td class="guests">15 – 24</td><td class="price">$2,035</td><td class="delta">+10%</td></tr>
+          <tr><td class="tier-name">Tier 3</td><td class="guests">25 – 35</td><td class="price">$2,405</td><td class="delta">+15%</td></tr>
+          <tr class="payout">
+            <td class="label" colspan="2">Floor payout · 8 hrs at Tier 1 (1–14 guests), direct booking, 50% split. Most bookings clear higher.</td>
+            <td class="amount" colspan="2">$7,400</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRIVATE EVENTS -->
+    <div class="price-table">
+      <div class="pt-head">
+        <div class="cat">Showrooms</div>
+        <div class="meta">Code &middot; <strong>SR</strong> &nbsp;·&nbsp; Minimum &middot; <strong>8 hours</strong></div>
+        <div class="meta">Cap &middot; <strong>30 guests</strong></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Guests</th><th style="text-align:right;">Hourly rate</th><th style="text-align:right;">Increase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-name">Tier 1 (Base)</td><td class="guests">1 – 14</td><td class="price">$2,650</td><td class="delta">—</td></tr>
+          <tr><td class="tier-name">Tier 2</td><td class="guests">15 – 24</td><td class="price">$2,755</td><td class="delta">+4%</td></tr>
+          <tr><td class="tier-name">Tier 3</td><td class="guests">25 – 34</td><td class="price">$2,915</td><td class="delta">+5%</td></tr>
+          <tr><td class="tier-name">Tier 4</td><td class="guests">35 – 44</td><td class="price">$3,445</td><td class="delta">+10%</td></tr>
+          <tr><td class="tier-name">Tier 5</td><td class="guests">45</td><td class="price">$3,920</td><td class="delta">+12%</td></tr>
+          <tr class="payout">
+            <td class="label" colspan="2">Floor payout · 8 hrs at Tier 1 (1–14 guests), direct booking, 50% split. Most bookings clear higher.</td>
+            <td class="amount" colspan="2">$10,600</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- CORPORATE EVENTS -->
+    <div class="price-table">
+      <div class="pt-head">
+        <div class="cat">Corporate Events</div>
+        <div class="meta">Code &middot; <strong>CE</strong> &nbsp;·&nbsp; Minimum &middot; <strong>8 hours</strong></div>
+        <div class="meta">Cap &middot; <strong>45 guests</strong></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Guests</th><th style="text-align:right;">Hourly rate</th><th style="text-align:right;">Increase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-name">Tier 1 (Base)</td><td class="guests">1 – 14</td><td class="price">$2,675</td><td class="delta">—</td></tr>
+          <tr><td class="tier-name">Tier 2</td><td class="guests">15 – 24</td><td class="price">$2,730</td><td class="delta">+2%</td></tr>
+          <tr><td class="tier-name">Tier 3</td><td class="guests">25 – 34</td><td class="price">$2,945</td><td class="delta">+5%</td></tr>
+          <tr><td class="tier-name">Tier 4</td><td class="guests">35 – 44</td><td class="price">$3,480</td><td class="delta">+10%</td></tr>
+          <tr><td class="tier-name">Tier 5</td><td class="guests">45 – 50</td><td class="price">$3,960</td><td class="delta">+12%</td></tr>
+          <tr class="payout">
+            <td class="label" colspan="2">Floor payout · 8 hrs at Tier 1 (1–14 guests), direct booking, 50% split. Most bookings clear higher.</td>
+            <td class="amount" colspan="2">$10,700</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- PRODUCTIONS -->
+    <div class="price-table">
+      <div class="pt-head">
+        <div class="cat">Productions</div>
+        <div class="meta">Code &middot; <strong>P</strong> &nbsp;·&nbsp; Minimum &middot; <strong>8 hours</strong></div>
+        <div class="meta">Cap &middot; <strong>45 crew</strong></div>
+      </div>
+      <table>
+        <thead>
+          <tr><th>Tier</th><th>Crew / on-site</th><th style="text-align:right;">Hourly rate</th><th style="text-align:right;">Increase</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="tier-name">Tier 1 (Base)</td><td class="guests">1 – 14</td><td class="price">$1,850</td><td class="delta">—</td></tr>
+          <tr><td class="tier-name">Tier 2</td><td class="guests">15 – 24</td><td class="price">$1,945</td><td class="delta">+5%</td></tr>
+          <tr><td class="tier-name">Tier 3</td><td class="guests">25 – 30</td><td class="price">$2,220</td><td class="delta">+10%</td></tr>
+          <tr><td class="tier-name">Tier 4</td><td class="guests">31 – 35</td><td class="price">$2,515</td><td class="delta">+12%</td></tr>
+          <tr><td class="tier-name">Tier 5</td><td class="guests">36 – 45</td><td class="price">$2,960</td><td class="delta">+15%</td></tr>
+          <tr class="payout">
+            <td class="label" colspan="2">Floor payout · 8 hrs at Tier 1 (1–14 crew), direct booking, 50% split. Most bookings clear higher.</td>
+            <td class="amount" colspan="2">$7,400</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="summary" style="margin-top: 32px; padding-top: 22px; padding-bottom: 0; border-top: 1px solid var(--rule); border-bottom: 0;">
+      <div>
+        <span class="label">How to read the floor figures</span>
+        Every minimum-payout number above is calculated at
+        <strong style="color: var(--ink);">Tier 1 — the smallest-headcount tier and the least-frequent booking type.</strong>
+        Most bookings land in Tier 2 or higher, which means the hourly rate steps up and the realized payout runs materially above the floor shown. Read these as a floor, not a projection.
+      </div>
+      <div>
+        <span class="label">We watch the market and adjust together</span>
+        These are the engine's standing rates for this tier of NoHo loft.
+        The launch period is when we learn how the market responds —
+        inquiry volume, tier distribution, conversion rate, time-to-book.
+        <strong style="color: var(--ink);">Nothing changes on the listing without your sign-off.</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANCHOR CALLOUT -->
+<section class="callout teal full">
+  <div class="inner">
+    <div class="superhead">The portfolio context</div>
+    <h2 class="title" style="font-size: clamp(36px, 6vw, 64px); margin: 18px 0 22px;">
+      Cocoon's flagship<br/>NoHo tier.
+    </h2>
+    <p class="lede" style="max-width: 820px;">
+      The rates on the prior page are the same schedule carried by
+      Cocoon's top-performing NoHo residence — a property that already
+      commands premium pricing against the platform's best inquiry
+      conversion. 21 Astor Place #7D earns that same placement on its
+      own merits: a larger footprint, a duplex format, and an address
+      that closes the gap with nothing else in the portfolio.
+    </p>
+  </div>
+</section>
+
+<!-- COMPARE TABLE -->
+<section>
+  <div class="divider-label">
+    <span class="text">Portfolio positioning</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">05</span>
+  </div>
+  <h2 class="headline">How 21 Astor places against the Cocoon portfolio.</h2>
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Cocoon portfolio median</th>
+        <th>21 Astor Place #7D</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="attr">Address</td>
+        <td class="peer">Mixed boroughs, varied neighborhoods</td>
+        <td class="us">21 Astor Place, NoHo, Manhattan — one of the city's most recognizable creative addresses</td>
+      </tr>
+      <tr>
+        <td class="attr">Format</td>
+        <td class="peer">Single-floor loft or townhouse level</td>
+        <td class="us">Duplex loft — two full floors, separate level for support / breakout</td>
+      </tr>
+      <tr>
+        <td class="attr">Interior footprint</td>
+        <td class="peer">2,000 – 3,200 sqft</td>
+        <td class="us">4,275 sqft — materially above median across every category</td>
+      </tr>
+      <tr>
+        <td class="attr">Guest capacity (max)</td>
+        <td class="peer">30 – 60</td>
+        <td class="us">45 — optimized for premium events, not mass-headcount</td>
+      </tr>
+      <tr>
+        <td class="attr">Tier-1 rate · Productions</td>
+        <td class="peer">$950 – $1,200 / hr</td>
+        <td class="us">$1,850 / hr</td>
+      </tr>
+      <tr>
+        <td class="attr">Tier-1 rate · Showrooms</td>
+        <td class="peer">$1,100 – $1,600 / hr</td>
+        <td class="us">$2,650 / hr</td>
+      </tr>
+      <tr>
+        <td class="attr">Tier-1 rate · Corporate Events</td>
+        <td class="peer">$1,300 – $1,900 / hr</td>
+        <td class="us">$2,675 / hr</td>
+      </tr>
+      <tr>
+        <td class="attr">Floor payout · 8 hrs SR</td>
+        <td class="peer">$4,400 – $6,400</td>
+        <td class="us">$10,600 — at the smallest headcount tier</td>
+      </tr>
+      <tr>
+        <td class="attr">Minimum booking</td>
+        <td class="peer">4 – 8 hrs</td>
+        <td class="us">8 hrs across all categories — full creative days only</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p class="body" style="color: var(--ink-soft); max-width: 820px; margin-top: 28px;">
+    For context: the rates above sit materially above the Cocoon
+    portfolio median across every category, reflecting the property's
+    scale, format, and address. These are the rates we'd open with
+    — we monitor demand and adjust with your approval as bookings accumulate.
+  </p>
+</section>
+
+<!-- OCCUPANCY EXPECTATIONS -->
+<section class="cream-deep">
+  <div class="divider-label">
+    <span class="text">What a successful year looks like</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">06</span>
+  </div>
+  <div class="two-col">
+    <div>
+      <h2 class="headline" style="margin:0;">~15% occupancy is what success looks like.</h2>
+    </div>
+    <div class="body" style="color: var(--ink-soft);">
+      <p>
+        A high-performing Cocoon property typically operates at
+        <strong style="color: var(--ink);">~15% calendar occupancy</strong>
+        across the year — roughly 55 days out of 365.
+      </p>
+      <p>
+        That distribution is bursty. A given month might have zero
+        bookings; another might run a three-day production block plus
+        two evening events. Revenue is annualized — not every month
+        hits the average, and several months will materially exceed it.
+      </p>
+      <p>
+        At 21 Astor's flagship-tier rates, 15% occupancy on
+        Productions alone at Tier 2 headcount (15–24 crew, $1,945/hr,
+        8-hr day) returns <strong style="color: var(--ink);">~$80,500 per year to you</strong>
+        at the 50% split — before any Showroom or Corporate
+        bookings stack on top.
+      </p>
+      <p>
+        We monitor the curve monthly and report with full transparency.
+        If inquiry volume is strong, we look at lifting rates. If
+        conversion is soft, we look at the tier structure. Nothing
+        moves without your approval.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- NEIGHBORHOOD -->
+<section>
+  <div class="divider-label">
+    <span class="text">The neighborhood</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">07</span>
+  </div>
+  <p class="lede" style="max-width: 760px; margin: 0;">
+    NoHo / Astor Place — the address that appears in production and brand briefs before the listing is opened. Il Buco, Bowery Hotel, Lafayette, and a walkable radius of the restaurants and venues that the same clientele uses.
+  </p>
+</section>
+
+<!-- TIMELINE -->
+<section class="cream-deep">
+  <div class="divider-label">
+    <span class="text">From signed to live</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">08</span>
+  </div>
+  <h2 class="headline">A concrete path to first bookings.</h2>
+  <div class="timeline">
+    <div class="row">
+      <div class="when">This week</div>
+      <div class="what">
+        <h5>Pricing strategy reviewed.</h5>
+        <p>We walk this document together, answer any open questions on the management agreement, and lock the rate sheet.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">On signature</div>
+      <div class="what">
+        <h5>Listing build kicks off.</h5>
+        <p>Cocoon writes the public listing copy, ingests the property photography, and prepares marketplace placements (Peerspace, Giggster) in parallel with the Cocoon site.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">Within 5 business days</div>
+      <div class="what">
+        <h5>Listing goes live at flagship-tier rates.</h5>
+        <p>Cocoon website + selected marketplaces at the rates on the prior page. Marketing team activates campaign assets and outreach to our production and brand-event network.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">Ongoing</div>
+      <div class="what">
+        <h5>Inquiry routing &amp; approvals.</h5>
+        <p>Every inquiry routes to you. Cocoon vets, quotes, and shortlists; you sign off before a booking confirms.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="when">Quarterly</div>
+      <div class="what">
+        <h5>Pricing &amp; performance review.</h5>
+        <p>Together we look at what the market paid, what we declined, and what to adjust — both rate tiers and category mix.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEXT STEPS -->
+<section class="callout ink full">
+  <div class="inner">
+    <div class="superhead" style="color: rgba(255,255,255,0.7);">Next steps</div>
+    <h2 class="title" style="font-size: clamp(36px, 6vw, 64px); margin: 18px 0 22px;">Three things to take this live.</h2>
+    <div class="walk" style="margin-top: 48px;">
+      <div class="step" style="border-top-color: var(--terracotta);">
+        <div class="step-num">Decision 01</div>
+        <h4 style="color: #FFF;">Approve the pricing strategy.</h4>
+        <p style="color: rgba(255,255,255,0.7);">Once you confirm the rate sheet, Cocoon finalizes the listing and publishes within 5 business days.</p>
+      </div>
+      <div class="step" style="border-top-color: var(--terracotta);">
+        <div class="step-num">Decision 02</div>
+        <h4 style="color: #FFF;">Countersign the management agreement.</h4>
+        <p style="color: rgba(255,255,255,0.7);">Once your questions on the agreement are answered, we countersign and the listing build starts the same day.</p>
+      </div>
+      <div class="step" style="border-top-color: var(--terracotta);">
+        <div class="step-num">Decision 03</div>
+        <h4 style="color: #FFF;">Provide property photography.</h4>
+        <p style="color: rgba(255,255,255,0.7);">Share the venue photos (StreetEasy listing or direct) and Cocoon prepares listing-optimized versions at 1,600 px on the long side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="inner">
+    <div class="sig">
+      <p>Robin, looking forward to building this with you. The loft earns its placement in the flagship tier on every axis — size, address, and format. The numbers are there when you're ready to go live.</p>
+      <p>I'll be on the other end whenever you want to walk through this together.</p>
+      <div class="name">Eduard Monteagudo Martín</div>
+      <div class="role">Cocoon Flex Spaces &middot; Sales</div>
+    </div>
+    <div class="meta">
+      <p><strong>Prepared for</strong><br/>Robin Zhao<br/>21 Astor Place #7D, NoHo, New York</p>
+      <p style="margin-top: 18px;"><strong>Prepared</strong><br/>August 2026</p>
+      <p style="margin-top: 18px;"><strong>Contact</strong><br/>eduard@cocoonflexspaces.com</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
